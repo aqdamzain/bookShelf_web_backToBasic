@@ -196,14 +196,16 @@ function addBookHandler(){
 
 function SearchBookHandler(){
     const searchTitle = document.getElementById('searchBookTitle').value;
-    const listBookFound = _listBookData.filter(book => book.title.toLowerCase() == searchTitle.toLowerCase());
+    if(!searchTitle==""){
+        const listBookFound = _listBookData.filter(book => book.title.toLowerCase() == searchTitle.toLowerCase());
 
-    //mengubah list book view berdasarkan buku yang dicari
-    _completeBookshelf.innerHTML = "";
-    _incompleteBookshelf.innerHTML = "";
-    showListCompleteBook(listBookFound.filter(book => book.isComplete));
-    showListIncompleteBook(listBookFound.filter(book => !book.isComplete));
+        //mengubah list book view berdasarkan buku yang dicari
+        _completeBookshelf.innerHTML = "";
+        _incompleteBookshelf.innerHTML = "";
+        showListCompleteBook(listBookFound.filter(book => book.isComplete));
+        showListIncompleteBook(listBookFound.filter(book => !book.isComplete));
 
+    }
 }
 
 
